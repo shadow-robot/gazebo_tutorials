@@ -14,189 +14,44 @@
       </attenuation>
       <direction>-0.5 0.5 -1</direction>
     </light>
-    <gravity>0 0 0</gravity>
+    <!-- <gravity>0 0 -9.81</gravity> -->
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
-    <physics name='default_physics' default='0' type='ode'>
+    <!-- <physics name='default_physics' default='0' type='ode'>
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
+    </physics> -->
+    <physics type="ode">
+      <gravity>0.000000 0.000000 -9.810000</gravity>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>100</iters>
+          <precon_iters>0</precon_iters>
+          <sor>1.000000</sor>
+        </solver>
+        <constraints>
+          <cfm>0.000000</cfm>
+          <erp>0.200000</erp>
+          <contact_max_correcting_vel>0.000000</contact_max_correcting_vel>
+          <contact_surface_layer>0.00000</contact_surface_layer>
+        </constraints>
+      </ode>
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <max_step_size>0.001000</max_step_size>
     </physics>
     <scene>
       <ambient>0.4 0.4 0.4 1</ambient>
       <background>0.7 0.7 0.7 1</background>
       <shadows>1</shadows>
     </scene>
-    <model name='link_velocity_demo'>
-      <plugin name='set_link_velocity_plugin' filename='libSetLinkVelocityPlugin.so'/>
-      <link name='white_link_0'>
-        <pose frame=''>0 1 1 0 0 0</pose>
-        <visual name='white_visual_0'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/White</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <link name='white_link_1'>
-        <pose frame=''>0 0 1 0 0 0</pose>
-        <visual name='white_visual_1'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/White</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <link name='white_link_2'>
-        <pose frame=''>0 -1 1 0 0 0</pose>
-        <visual name='white_visual_2'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/White</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <link name='red_link_0'>
-        <pose frame=''>0 1 2 0 0 0</pose>
-        <visual name='red_visual_1'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Red</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <link name='red_link_1'>
-        <pose frame=''>0 0 2 0 0 0</pose>
-        <visual name='red_visual_1'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Red</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <link name='red_link_2'>
-        <pose frame=''>0 -1 2 0 0 0</pose>
-        <visual name='red_visual_2'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Red</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <link name='green_link_0'>
-        <pose frame=''>0 1 3 0 0 0</pose>
-        <visual name='green_visual_0'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Green</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <link name='green_link_1'>
-        <pose frame=''>0 0 3 0 0 0</pose>
-        <visual name='green_visual_1'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Green</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <link name='green_link_2'>
-        <pose frame=''>0 -1 3 0 0 0</pose>
-        <visual name='green_visual_2'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Green</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-    </model>
+
     <model name='joint_velocity_demo'>
       <plugin name='set_joint_velocity_plugin' filename='libSetJointVelocityPlugin.so'/>
-      <link name='purple_link_0'>
-        <pose frame=''>0 -1 5 0 0 0</pose>
-        <visual name='purple_visual_0'>
+      <link name='blue_link_0'>
+        <pose frame=''>0 0 0.5 0 0 0</pose>
+        <visual name='blue_visual_0'>
           <geometry>
             <cylinder>
               <radius>0.1</radius>
@@ -207,143 +62,169 @@
             <lighting>1</lighting>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Purple</name>
+              <name>Gazebo/Blue</name>
             </script>
           </material>
         </visual>
-      </link>
-      <link name='purple_link_1'>
-        <pose frame=''>0 -1 5.5 0 0 0</pose>
-        <visual name='purple_visual_1'>
+        <collision name='blue_collision_0'>
           <geometry>
             <cylinder>
               <radius>0.1</radius>
               <length>0.5</length>
             </cylinder>
           </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>1</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>23.333324</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>23.333324</iyy>
+            <iyz>0</iyz>
+            <izz>5</izz>
+          </inertia>
+          <mass>1000.0</mass>
+        </inertial>
+      </link>
+      <link name='blue_link_1'>
+        <pose frame=''>0 -0.306 0.75 1.5 0 0</pose>
+        <visual name='blue_visual_1'>
+          <!-- <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.5</length>
+            </cylinder>
+          </geometry> -->
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/user/projects/shadow_robot/base/src/universal_robot/ur_e_description/meshes/ur10e/visual/upperarm.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>__default__</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+          <!-- <geometry>
+            <cylinder>
+              <radius>0.075</radius>
+              <length>0.6127</length>
+            </cylinder>
+          </geometry>
           <material>
             <lighting>1</lighting>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Purple</name>
+              <name>Gazebo/Blue</name>
             </script>
-          </material>
+          </material> -->
         </visual>
+        <!-- <collision name='blue_collision_1'>
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.5</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision> -->
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>1</self_collide>
+        <!-- <inertial>
+          <inertia>
+            <ixx>23.333324</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>23.333324</iyy>
+            <iyz>0</iyz>
+            <izz>5</izz>
+          </inertia>
+          <mass>1000.0</mass>
+        </inertial> -->
+        <inertial>
+          <pose frame=''>0 0 0 0 0 0</pose>
+          <mass>12.93</mass>
+          <inertia>
+            <ixx>0.422678</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.422678</iyy>
+            <iyz>0</iyz>
+            <izz>0.0363656</izz>
+          </inertia>
+        </inertial>
       </link>
-      <joint name='purple_joint' type='revolute'>
-        <parent>purple_link_0</parent>
-        <child>purple_link_1</child>
+      <joint name='blue_joint' type='revolute'>
+        <parent>blue_link_0</parent>
+        <child>blue_link_1</child>
         <pose frame=''>0 0 -0.25 0 -0 0</pose>
         <axis>
           <xyz>1 0 0</xyz>
           <limit>
-            <lower>-1.5</lower>
-            <upper>1.5</upper>
+            <lower>-6.0</lower>
+            <upper>6.0</upper>
             <effort>-1</effort>
             <velocity>-1</velocity>
           </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
         </axis>
       </joint>
-      <link name='orange_link_0'>
-        <pose frame=''>0 0 5 0 0 0</pose>
-        <visual name='orange_visual_0'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Orange</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <link name='orange_link_1'>
-        <pose frame=''>0 0 5.5 0 0 0</pose>
-        <visual name='orange_visual_1'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Orange</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <joint name='orange_joint' type='revolute'>
-        <parent>orange_link_0</parent>
-        <child>orange_link_1</child>
+
+      <joint name='world_joint' type='revolute'>
+        <parent>world</parent>
+        <child>blue_link_0</child>
         <pose frame=''>0 0 -0.25 0 -0 0</pose>
         <axis>
-          <xyz>1 0 0</xyz>
+          <xyz>0 0 1</xyz>
           <limit>
-            <lower>-1.5</lower>
-            <upper>1.5</upper>
+            <lower>-3.14</lower>
+            <upper>3.14</upper>
             <effort>-1</effort>
             <velocity>-1</velocity>
           </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
         </axis>
       </joint>
-      <link name='gray_link_0'>
-        <pose frame=''>0 1 5 0 0 0</pose>
-        <visual name='gray_visual_0'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <link name='gray_link_1'>
-        <pose frame=''>0 1 5.5 0 0 0</pose>
-        <visual name='gray_visual_1'>
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>0.5</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-      <joint name='gray_joint' type='revolute'>
-        <parent>gray_link_0</parent>
-        <child>gray_link_1</child>
-        <pose frame=''>0 0 -0.25 0 -0 0</pose>
-        <axis>
-          <xyz>1 0 0</xyz>
-          <limit>
-            <lower>-1.5</lower>
-            <upper>1.5</upper>
-            <effort>-1</effort>
-            <velocity>-1</velocity>
-          </limit>
-        </axis>
-      </joint>
+
+      <!-- <joint name='world_joint' type='fixed'>
+        <child>blue_link_0</child>
+        <parent>world</parent>
+      </joint> -->
+
+      <static>0</static>
     </model>
     <gui fullscreen='0'>
       <camera name='user_camera'>

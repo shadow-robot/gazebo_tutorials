@@ -178,7 +178,7 @@
         </visual>
         <inertial>
           <pose frame=''>0 0 0 0 -0 0</pose>
-          <!-- <mass>7.778</mass>
+          <mass>7.778</mass>
           <inertia>
             <ixx>0.0314743</ixx>
             <ixy>0</ixy>
@@ -186,8 +186,8 @@
             <iyy>0.0314743</iyy>
             <iyz>0</iyz>
             <izz>0.0218756</izz>
-          </inertia> -->
-          <mass>12.93</mass>
+          </inertia>
+          <!-- <mass>12.93</mass>
           <inertia>
             <ixx>0.422678</ixx>
             <ixy>0</ixy>
@@ -195,7 +195,7 @@
             <iyy>0.422678</iyy>
             <iyz>0</iyz>
             <izz>0.0363656</izz>
-          </inertia>
+          </inertia> -->
         </inertial>
         <gravity>1</gravity>
         <velocity_decay/>
