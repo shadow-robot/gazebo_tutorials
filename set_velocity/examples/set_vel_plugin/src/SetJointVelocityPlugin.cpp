@@ -40,21 +40,22 @@ namespace gazebo
       {
         if (update_num == 0)
         {
-          this->model->GetJoint("world_joint")->SetParam("fmax", 0, 10000.0);
-          this->model->GetJoint("world_joint")->SetParam("vel", 0, 0.0);
+          this->model->GetJoint("world_joint_blue")->SetParam("fmax", 0, 10000.0);
+          this->model->GetJoint("world_joint_blue")->SetParam("vel", 0, 0.0);
           this->model->GetJoint("blue_joint")->SetParam("fmax", 0, 2500.0);
           this->model->GetJoint("blue_joint")->SetParam("vel", 0, 0.0);
 
-          this->model->GetJoint("ra_shoulder_pan_joint")->SetParam("fmax", 0, 10000.0);
-          this->model->GetJoint("ra_shoulder_pan_joint")->SetParam("vel", 0, 0.0);
-          this->model->GetJoint("ra_shoulder_lift_joint")->SetParam("fmax", 0, 2500.0);
-          this->model->GetJoint("ra_shoulder_lift_joint")->SetParam("vel", 0, 0.0);
+          this->model->GetJoint("world_joint_red")->SetParam("fmax", 0, 10000.0);
+          this->model->GetJoint("world_joint_red")->SetParam("vel", 0, 0.0);
+          this->model->GetJoint("red_joint")->SetParam("fmax", 0, 2500.0);
+          this->model->GetJoint("red_joint")->SetParam("vel", 0, 0.0);
         }
-        this->model->GetJoint("world_joint")->SetParam("vel", 0, 0.0);
+        this->model->GetJoint("world_joint_blue")->SetParam("vel", 0, 0.0);
         this->model->GetJoint("blue_joint")->SetParam("vel", 0, 0.0);
 
-        this->model->GetJoint("ra_shoulder_pan_joint")->SetParam("vel", 0, 0.0);
-        this->model->GetJoint("ra_shoulder_lift_joint")->SetParam("vel", 0, 0.0);
+        this->model->GetJoint("world_joint_red")->SetParam("vel", 0, 0.0);
+        this->model->GetJoint("red_joint")->SetParam("vel", 0, 0.0);
+
         update_num++;
       }
 
